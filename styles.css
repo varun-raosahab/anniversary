@@ -1,0 +1,364 @@
+body {
+    font-family: 'Arial, sans-serif';
+    background-color: #fef3f3;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8bfbf;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin: 35px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #f05050;
+    border-bottom: 2px solid #f8bfbf;
+    padding-bottom: 5px;
+}
+
+/* Timeline Container */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Each milestone styling */
+.milestone {
+    display: flex;
+    align-items: center; /* Aligns text and image horizontally */
+    gap: 20px; /* Space between text and image */
+    background-color: #ffecec;
+    padding: 15px;
+    border-left: 4px solid #f8bfbf;
+    border-radius: 4px;
+    font-size: 1.1em;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-100px); /* Initially positioned off-screen */
+    animation: slideInFromLeft 1s ease-out forwards;
+}
+
+/* Image styling */
+.milestone-img {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeInImage 1.2s ease-out forwards 0.3s;
+}
+
+/* Text inside the milestone */
+.milestone-text {
+    flex-grow: 1; /* Takes the remaining space */
+    opacity: 0;
+    transform: translateX(100px); /* Initially positioned off-screen to the right */
+    animation: slideInFromRight 1s ease-out forwards;
+}
+
+/* Slide-in effect for the entire milestone */
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide-in effect for the text from the right */
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Image fade-in and zoom effect */
+@keyframes fadeInImage {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Add slight delay to images for a staggered effect */
+.milestone:nth-child(1) .milestone-img {
+    animation-delay: 0.3s;
+}
+
+.milestone:nth-child(2) .milestone-img {
+    animation-delay: 0.5s;
+}
+
+.milestone:nth-child(3) .milestone-img {
+    animation-delay: 0.7s;
+}
+
+.milestone:nth-child(4) .milestone-img {
+    animation-delay: 0.9s;
+}
+
+.milestone:nth-child(5) .milestone-img {
+    animation-delay: 1.1s;
+}
+
+.milestone:nth-child(6) .milestone-img {
+    animation-delay: 1.3s;
+}
+
+.milestone:nth-child(7) .milestone-img {
+    animation-delay: 1.5s;
+}
+
+/* Surprise Section Styling */
+#surprise-section {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffe6f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#surprise-section h2 {
+    font-size: 2rem;
+    color: #ff4081;
+    margin-bottom: 10px;
+}
+
+#surprise-section p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.surprise-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.surprise-btn {
+    background-color: #ff4081;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.surprise-btn:hover {
+    background-color: #e91e63;
+    transform: scale(1.1);
+}
+
+.button-container button {
+    font-size: 1.5rem;
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    background: linear-gradient(135deg, #ff6f61, #ff8a65);
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.button-container button:hover {
+    transform: scale(1.2);
+    background: linear-gradient(135deg, #ff8a65, #ff6f61);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+#surpriseContainer div {
+    font-size: 5rem;
+    color: #ff4081; /* Vibrant color for surprises */
+    animation: popIn 0.6s cubic-bezier(0.3, 1.5, 0.8, 1); /* Smooth popping animation */
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Add depth to the text */
+}
+
+#surpriseContainer p {
+    margin-top: 15px;
+    font-size: 1.5rem;
+    color: #444;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    line-height: 1.5;
+    animation: fadeIn 0.6s ease-in-out; /* Smooth fade-in for text */
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.photo-gallery img {
+    width: 100%;
+    display: block;
+    align-self: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Positioned lower initially for smooth entry */
+    transition: transform 1s cubic-bezier(0.42, 0, 0.58, 1), opacity 1s ease-out; /* Smoother transition */
+    position: relative;
+    transition-delay: 0.3s; /* Added delay for staggered effect */
+}
+
+/* Pop-up effect on scroll down with a smooth bounce */
+.photo-gallery img.visible {
+    opacity: 1;
+    transform: translateY(0); /* Image moves to its normal position */
+    animation: smoothBounce 0.7s ease-out; /* Smooth bounce effect */
+}
+
+/* Up-scroll effect (fading out and moving upwards smoothly) */
+.photo-gallery img.up-scroll-visible {
+    opacity: 0.7; /* Slight fade-out effect */
+    transform: translateY(-30px); /* Move upwards with more space when scrolling up */
+    transition: transform 1.2s ease-in-out, opacity 1.2s ease-out; /* Smoother transition */
+}
+
+/* Smooth bounce effect when scrolling down */
+@keyframes smoothBounce {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(-15px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Hover effect to zoom and add a glowing effect */
+.photo-gallery img:hover {
+    transform: scale(1.05); /* Slight zoom-in effect */
+    box-shadow: 0 15px 30px rgba(255, 105, 180, 0.5); /* Enhanced shadow */
+    filter: brightness(1.2) contrast(1.1); /* Brighten and enhance */
+}
+
+
+
+.quiz {
+    font-size: 1.1em;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quiz p {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #f05050;
+}
+
+#options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+.quizOption {
+    background-color: #ffecec;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.quizOption:hover {
+    transform: scale(1.05);
+    background-color: #f8dede;
+}
+
+pre {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    background-color: #ffecec;
+    border: 1px solid #f8bfbf;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 20px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8bfbf;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
